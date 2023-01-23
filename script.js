@@ -1,3 +1,32 @@
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+    let tieScore = 0;
+
+    for(let i = 0; i < 5; i++){
+
+        let playerChoice = prompt('Rock, Paper, or Scissors: ');
+        playerChoice = playerChoice.toUpperCase();
+
+        let result = playRound(playerChoice, getComputerChoice());
+        
+        if(result === 'tie'){
+            tieScore++;
+        }
+        else if(result === 'player'){
+            playerScore++;
+        }
+        else if(result === 'computer'){
+            computerScore++;
+        }
+
+        console.log('<--------------------------------------->');
+        console.log('Player Score: ' + playerScore);
+        console.log('Computer Score: ' + computerScore);
+        console.log('Tie Score: ' + tieScore);
+    }
+}
+
 function playRound(playerChoice, computerChoice){
     let result;
 
