@@ -2,6 +2,7 @@ const buttons = document.querySelectorAll('.selection');
 const resultTxt = document.querySelector('#result');
 const playerTxt = document.querySelector('#player');
 const compTxt = document.querySelector('#computer');
+const gameWinner = document.querySelector('#winner');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -10,6 +11,7 @@ function startRound(e){
     let playerChoice = e.currentTarget.id;
     let computerChoice = getComputerChoice();
     let winner = findResult(playerChoice, computerChoice)
+    gameWinner.textContent = '';
     resultTxt.textContent = `Winner is: ${winner}`;
     playerTxt.textContent = `Player Score: ${playerScore}`;
     compTxt.textContent = `Computer score: ${computerScore}`;
@@ -75,9 +77,15 @@ function getComputerChoice(){
 }
 
 function endgame(){
+    if(playerScore === 5){
+        gameWinner.textContent = 'PLAYER WON!';
+    }
+    else if(computerScore === 5){
+        gameWinner.textContent = 'COMPUTER WON!';
+    }
+
     playerScore = 0;
     computerScore = 0;
-    console.log('someone won!');
 }
 
 buttons.forEach(buttons => buttons.addEventListener('click', startRound));
