@@ -1,4 +1,4 @@
-function game(){
+/*function game(){
     let playerScore = 0;
     let computerScore = 0;
     let tieScore = 0;
@@ -25,7 +25,19 @@ function game(){
         console.log('Computer Score: ' + computerScore);
         console.log('Tie Score: ' + tieScore);
     }
-}
+}*/
+
+const buttons = document.querySelectorAll('.selection');
+
+buttons.forEach(buttons => buttons.addEventListener('click', function(e){
+    let playerChoice = e.currentTarget.id;
+    let computerChoice = getComputerChoice();
+    console.log(playRound(playerChoice, computerChoice));
+}))
+
+
+
+
 
 function playRound(playerChoice, computerChoice){
     let result;
