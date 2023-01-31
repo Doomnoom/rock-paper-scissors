@@ -28,12 +28,15 @@
 }*/
 
 const buttons = document.querySelectorAll('.selection');
+let resultTxt = document.querySelector('#result');
 
 buttons.forEach(buttons => buttons.addEventListener('click', function(e){
     let playerChoice = e.currentTarget.id;
     let computerChoice = getComputerChoice();
-    console.log(playRound(playerChoice, computerChoice));
+    let winner = playRound(playerChoice, computerChoice)
+    resultTxt.textContent = `Winner is: ${winner}`;
 }))
+
 
 
 
